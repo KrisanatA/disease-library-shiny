@@ -1,0 +1,39 @@
+---
+title: "Data Idea"
+output: html_document
+date: "2022-08-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+## Data Cleaning
+
+```{r}
+mortality <- readr::read_csv("data/share-of-deaths-by-cause.csv")
+```
+
+```{r}
+summary(arsenal::comparedf(mortality, mortality_2))
+```
+
+```{r}
+
+```
+
+
+## Motivation, Purpose
+
+- Target Audience: Healthcare Professional
+- Purposes: The purpose of this app is to spread awareness on the diseases around the world
+- Motivation: With the COVID-19 pandemic and new diseases, may shadow the other existing diseases, hence this app is to provide information and emphasis on the ongoing diseases that have caused death for more than a decade.
+
+
+## Analysis
+
+
