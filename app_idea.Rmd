@@ -10,20 +10,66 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tidyverse)
+library(leaflet)
 ```
 
 ## Data Cleaning
 
 ```{r}
 mortality <- readr::read_csv("data/share-of-deaths-by-cause.csv")
+glimpse(mortality)
 ```
 
 ```{r}
-summary(arsenal::comparedf(mortality, mortality_2))
+clean_mortality <- mortality %>%
+  select(Entity,
+         Code,
+         Year,
+         `Deaths - Cardiovascular diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Neoplasms - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Maternal disorders - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Chronic respiratory diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Digestive diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Diabetes mellitus - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Lower respiratory infections - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Neonatal disorders - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Diarrheal diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Cirrhosis and other chronic liver diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Tuberculosis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Chronic kidney disease - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Alzheimer's disease and other dementias - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Parkinson's disease - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - HIV/AIDS - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Acute hepatitis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Malaria - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Nutritional deficiencies - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Meningitis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Protein-energy malnutrition - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Enteric infections - Sex: Both - Age: All Ages (Percent)`) %>%
+  pivot_longer(-c(Entity, Code, Year),
+               values_to = "Mortality_rate_(%)") %>%
+  mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = ""))) %>%
+  select(-name) %>%
+  relocate(Disease, .before = 'Mortality_rate_(%)')
 ```
 
 ```{r}
+NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
+```
 
+```{r}
+require(gapminder)
+new <- gapminder %>%
+  mutate(country = as.character(country))
+countries <- unique(new$country)
+continent <- unique(new$continent)
+countries <- countryExData[, 2]
+
+summary(arsenal::comparedf(gapminder, mortality))
+
+
+mortality %>%
+  filter(is.na(Code))
 ```
 
 
@@ -36,4 +82,15 @@ summary(arsenal::comparedf(mortality, mortality_2))
 
 ## Analysis
 
+```{r}
+clean_mortality %>%
+  filter(Entity == "World Bank High Income",
+         Year == 2019) %>%
+  arrange(-`Mortality_rate_(%)`)
+
+clean_mortality %>%
+  filter(Entity == "World Bank Low Income",
+         Year == 2019) %>%
+  arrange(-`Mortality_rate_(%)`)
+```   
 
