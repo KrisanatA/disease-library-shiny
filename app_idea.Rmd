@@ -11,17 +11,35 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(leaflet)
+library(sf)
 ```
 
 ## Data Cleaning
 
 ```{r}
-mortality <- readr::read_csv("data/share-of-deaths-by-cause.csv")
+mortality <- read_csv(here::here("data/share-of-deaths-by-cause.csv"))
 glimpse(mortality)
+
+world_map <- read_sf(here::here("data/world-administrative-boundaries/world-administrative-boundaries.shp")) %>%
+  st_zm(drop = TRUE)
+
+require(gapminder)
+new <- gapminder %>%
+  mutate(country = tolower(as.character(country)))
+
+countries <- unique(new$country)
+
+mortality_sf <- mortality %>%
+  filter(tolower(Entity) %in% countries) %>%
+  group_by(Code) %>%
+  left_join(world_map, by = c("Code" = "iso3")) %>%
+  ungroup()
+
+NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
 ```
 
 ```{r}
-clean_mortality <- mortality %>%
+clean_mortality <- mortality_sf %>%
   select(Entity,
          Code,
          Year,
@@ -45,31 +63,16 @@ clean_mortality <- mortality %>%
          `Deaths - Nutritional deficiencies - Sex: Both - Age: All Ages (Percent)`,
          `Deaths - Meningitis - Sex: Both - Age: All Ages (Percent)`,
          `Deaths - Protein-energy malnutrition - Sex: Both - Age: All Ages (Percent)`,
-         `Deaths - Enteric infections - Sex: Both - Age: All Ages (Percent)`) %>%
-  pivot_longer(-c(Entity, Code, Year),
+         `Deaths - Enteric infections - Sex: Both - Age: All Ages (Percent)`,
+         continent,
+         geometry) %>%
+  pivot_longer(-c(Entity, Code, Year, continent, geometry),
                values_to = "Mortality_rate_(%)") %>%
-  mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = ""))) %>%
+  mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = "")),
+         NCD = ifelse(Disease %in% NCD, "Yes", "No")) %>%
   select(-name) %>%
-  relocate(Disease, .before = 'Mortality_rate_(%)')
-```
-
-```{r}
-NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
-```
-
-```{r}
-require(gapminder)
-new <- gapminder %>%
-  mutate(country = as.character(country))
-countries <- unique(new$country)
-continent <- unique(new$continent)
-countries <- countryExData[, 2]
-
-summary(arsenal::comparedf(gapminder, mortality))
-
-
-mortality %>%
-  filter(is.na(Code))
+  relocate(`Mortality_rate_(%)`, .after = NCD) %>%
+  relocate(geometry, .after = `Mortality_rate_(%)`)
 ```
 
 
@@ -84,13 +87,49 @@ mortality %>%
 
 ```{r}
 clean_mortality %>%
-  filter(Entity == "World Bank High Income",
+  filter(continent == "Africa",
          Year == 2019) %>%
-  arrange(-`Mortality_rate_(%)`)
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
 
 clean_mortality %>%
-  filter(Entity == "World Bank Low Income",
+  filter(continent == "Americas",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
+
+clean_mortality %>%
+  filter(continent == "Europe",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
+
+clean_mortality %>%
+  filter(continent == "Oceania",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
+
+clean_mortality %>%
+  filter(continent == "Asia",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
+```   
+
+```{r}
+clean_mortality %>%
+  filter(Entity == "Australia",
          Year == 2019) %>%
   arrange(-`Mortality_rate_(%)`)
-```   
+```
+
+```{r}
+
+```
 
