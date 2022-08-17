@@ -69,10 +69,11 @@ clean_mortality <- mortality_sf %>%
   pivot_longer(-c(Entity, Code, Year, continent, geometry),
                values_to = "Mortality_rate_(%)") %>%
   mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = "")),
-         NCD = ifelse(Disease %in% NCD, "Yes", "No")) %>%
+         NCD = ifelse(Disease %in% NCD, "Yes", "No"),
+         `Mortality_rate_(%)` = round(`Mortality_rate_(%)`, 4)) %>%
   select(-name) %>%
   relocate(`Mortality_rate_(%)`, .after = NCD) %>%
-  relocate(geometry, .after = `Mortality_rate_(%)`)
+  relocate(geometry, .after = `Mortality_rate_(%)`) 
 ```
 
 
@@ -123,13 +124,11 @@ clean_mortality %>%
 ```   
 
 ```{r}
-clean_mortality %>%
-  filter(Entity == "Australia",
-         Year == 2019) %>%
-  arrange(-`Mortality_rate_(%)`)
-```
-
-```{r}
-
+clean_mortality_highest <- clean_mortality %>%
+  group_by(Entity, Year) %>%
+  mutate(Highest = max(`Mortality_rate_(%)`),
+         Cause = ifelse(Highest == `Mortality_rate_(%)`, "Yes", "No")) %>%
+  filter(Cause == "Yes") %>%
+  select(-c(Cause, Highest))
 ```
 
