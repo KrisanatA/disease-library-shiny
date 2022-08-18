@@ -32,7 +32,7 @@ countries <- unique(new$country)
 mortality_sf <- mortality %>%
   filter(tolower(Entity) %in% countries) %>%
   group_by(Code) %>%
-  left_join(world_map, by = c("Code" = "iso3")) %>%
+  right_join(world_map, by = c("Code" = "iso3")) %>%
   ungroup()
 
 NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
@@ -130,5 +130,15 @@ clean_mortality_highest <- clean_mortality %>%
          Cause = ifelse(Highest == `Mortality_rate_(%)`, "Yes", "No")) %>%
   filter(Cause == "Yes") %>%
   select(-c(Cause, Highest))
+
+clean_mortality_highest <- st_as_sf(clean_mortality_highest) %>%
+  filter(Year == 2019)
+```
+
+```{r}
+library(tmap)
+tmap_mode("view")
+tm_shape(clean_mortality_highest) +
+  tm_polygons(col = "Disease")
 ```
 
