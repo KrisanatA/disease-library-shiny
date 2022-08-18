@@ -139,6 +139,7 @@ clean_mortality_highest <- st_as_sf(clean_mortality_highest) %>%
 library(tmap)
 tmap_mode("view")
 tm_shape(clean_mortality_highest) +
-  tm_polygons(col = "Disease")
+  tm_polygons(col = "Disease") +
+  tm_basemap(leaflet::providers$CartoDB.VoyagerNoLabels)
 ```
 
