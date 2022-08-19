@@ -1,117 +1,126 @@
 library(shiny)
 library(tidyverse)
-
-ui <- fluidPage(
-
-    titlePanel("Old Faithful Geyser Data"),
-
-    h3("1. What number of bins do you stop seeing bimodality in the waiting time?"),
-    fluidRow(
-      sidebarLayout(
-          sidebarPanel(
-              sliderInput("bins",
-                          "Number of bins:",
-                          min = 1,
-                          max = 50,
-                          value = 30)
-          ),
-
-          mainPanel(
-             plotOutput("distPlot")
-          )
-      )
-    ),
-
-    h3("2. How do the different geoms change the view of the data?"),
-    fluidRow(
-      sidebarLayout(
-        sidebarPanel(
-          radioButtons("geom",
-                      "Geom choice:",
-                      choices = c("geom_point",
-                                  "geom_density_2d",
-                                  "geom_density_2d_filled",
-                                  "geom_bin_2d",
-                                  "geom_hex"))
-        ),
-
-        mainPanel(
-          plotOutput("plot")
-        )
-      )
-    ),
-
-    h3("3. Is a mixture of two normal distribution good fit on eruption time?"),
-    fluidRow(
-      sidebarLayout(
-        sidebarPanel(
-          sliderInput("bins2",
-                      "Adjust the number of bins (if needed):",
-                      min = 1,
-                      max = 50,
-                      value = 30),
-          "Enter your guess for the:",
-          numericInput("p", "Mixing probability:",
-                       value = 0.35, min = 0, max = 1),
-          numericInput("mean1", "Mean of the first group:",
-                       value = 2.02),
-          numericInput("mean2", "Mean of the second group:",
-                       value = 4.27),
-          numericInput("sd1", "Standard deviation of the first group:",
-                       value = 0.24, min = 0),
-          numericInput("sd2", "Standard deviation of the second group:",
-                       value = 0.44, min = 0)
-        ),
-
-        mainPanel(
-          plotOutput("mixDistFit")
-        )
-      )
-    ),
+library(tmap)
+library(sf)
+library(gapminder)
 
 
-    fluidRow(
-      column(10,
-             div(class = "about",
-                 uiOutput('about'))
-      )
-    ),
-    includeCSS("styles.css")
+# Data --------------------------------------------------------------------
+
+mortality <- read_csv(here::here("data/share-of-deaths-by-cause.csv"))
+glimpse(mortality)
+
+world_map <- read_sf(here::here("data/world-administrative-boundaries/world-administrative-boundaries.shp")) %>%
+  st_zm(drop = TRUE)
+
+new <- gapminder %>%
+  mutate(country = tolower(as.character(country)))
+
+countries <- unique(new$country)
+
+mortality_sf <- mortality %>%
+  filter(tolower(Entity) %in% countries) %>%
+  group_by(Code) %>%
+  right_join(world_map, by = c("Code" = "iso3")) %>%
+  ungroup()
+
+NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
+
+
+# Clean -------------------------------------------------------------------
+
+clean_mortality <- mortality_sf %>%
+  select(Entity,
+         Code,
+         Year,
+         `Deaths - Cardiovascular diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Neoplasms - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Maternal disorders - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Chronic respiratory diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Digestive diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Diabetes mellitus - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Lower respiratory infections - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Neonatal disorders - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Diarrheal diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Cirrhosis and other chronic liver diseases - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Tuberculosis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Chronic kidney disease - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Alzheimer's disease and other dementias - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Parkinson's disease - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - HIV/AIDS - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Acute hepatitis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Malaria - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Nutritional deficiencies - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Meningitis - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Protein-energy malnutrition - Sex: Both - Age: All Ages (Percent)`,
+         `Deaths - Enteric infections - Sex: Both - Age: All Ages (Percent)`,
+         continent,
+         geometry) %>%
+  pivot_longer(-c(Entity, Code, Year, continent, geometry),
+               values_to = "Mortality_rate_(%)") %>%
+  mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = "")),
+         NCD = ifelse(Disease %in% NCD, "Yes", "No"),
+         `Mortality_rate_(%)` = round(`Mortality_rate_(%)`, 4)) %>%
+  select(-name) %>%
+  relocate(`Mortality_rate_(%)`, .after = NCD) %>%
+  relocate(geometry, .after = `Mortality_rate_(%)`)
+
+clean_mortality_highest <- clean_mortality %>%
+  group_by(Entity, Year) %>%
+  mutate(Highest = max(`Mortality_rate_(%)`),
+         Cause = ifelse(Highest == `Mortality_rate_(%)`, "Yes", "No")) %>%
+  filter(Cause == "Yes") %>%
+  select(-c(Cause, Highest))
+
+clean_mortality_highest <- st_as_sf(clean_mortality_highest) %>%
+  filter(Year == 2019)
+
+disease_ordered <- clean_mortality_highest %>%
+  group_by(Disease) %>%
+  summarise(n = n()) %>%
+  arrange(-n) %>%
+  pull(Disease)
+
+clean_mortality_highest$Disease <- ordered(clean_mortality_highest$Disease, levels = disease_ordered)
+
+
+# Shiny app ---------------------------------------------------------------
+
+ui <- fillPage(
+
+  navbarPage("Test", id = "top",
+
+             # Map tab
+             tabPanel("World Map",
+
+                      tmapOutput("world", width = "100%", height = 400)
+
+                      ),
+
+             # Exploring tab
+             tabPanel("Exploring Disease",
+
+
+
+                      ),
+
+             # Information tab
+             tabPanel("Information"),
+
+             # About tab
+             tabPanel("About")
+             ),
+
 )
 
 server <- function(input, output) {
 
-    output$distPlot <- renderPlot({
-        ggplot(faithful, aes(waiting)) +
-         geom_histogram(bins = input$bins, color = "white") +
-         theme_bw(base_size = 14) +
-         labs(x = "Waiting time", y = "Count")
-    })
+  output$world <- renderTmap({
+    tm_shape(clean_mortality_highest) +
+      tm_polygons(col = "Disease") +
+      tm_basemap(leaflet::providers$CartoDB.VoyagerNoLabels)
+  })
 
-    output$plot <- renderPlot({
-      ggplot(faithful, aes(waiting, eruptions)) +
-        get(input$geom)() +
-        theme_bw(base_size = 14) +
-        labs(x = "Waiting time", y = "Eruption time")
-    })
-
-    output$mixDistFit <- renderPlot({
-      df <- data.frame(x = seq(min(faithful$eruptions), max(faithful$eruptions), length = 1000)) %>%
-        mutate(density = input$p * dnorm(x, input$mean1, input$sd1) +
-                         (1 - input$p) * dnorm(x, input$mean2, input$sd2))
-
-      ggplot(faithful, aes(eruptions)) +
-        geom_histogram(aes(y = stat(density)), bins = input$bins2, color = "white") +
-        geom_line(data = df, aes(x = x, y = density), color = "red", size = 2) +
-        theme_bw(base_size = 14) +
-        labs(x = "Eruption time", y = "Density")
-    })
-
-    output$about <- renderUI({
-      knitr::knit("about.Rmd", quiet = TRUE) %>%
-        markdown::markdownToHTML(fragment.only = TRUE) %>%
-        HTML()
-    })
 }
 
 shinyApp(ui = ui, server = server)

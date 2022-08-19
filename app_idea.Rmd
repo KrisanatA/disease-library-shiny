@@ -133,13 +133,22 @@ clean_mortality_highest <- clean_mortality %>%
 
 clean_mortality_highest <- st_as_sf(clean_mortality_highest) %>%
   filter(Year == 2019)
+
+disease_ordered <- clean_mortality_highest %>%
+  group_by(Disease) %>%
+  summarise(n = n()) %>%
+  arrange(-n) %>%
+  pull(Disease)
+
+clean_mortality_highest$Disease <- ordered(clean_mortality_highest$Disease, levels = disease_ordered)
 ```
 
 ```{r}
 library(tmap)
+library(RColorBrewer)
 tmap_mode("view")
 tm_shape(clean_mortality_highest) +
-  tm_polygons(col = "Disease") +
+  tm_polygons(col = "Disease", palette = "RdYlBu") +
   tm_basemap(leaflet::providers$CartoDB.VoyagerNoLabels)
 ```
 
