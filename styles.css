@@ -1,23 +1,8 @@
-#world {
-  border: 1px line grey;
-  padding: 0;
-  border-radius: 5px;
-}
-
 #fact {
-  /* Appearance */
-  background-color: white;
+  background-color: #D3D3D3;
   padding: 0 20px 20px 20px;
-  cursor: move;
-  /* Fade out while not hovering */
-  opacity: 0.65;
-  zoom: 0.9;
-  transition: opacity 500ms 1s;
-}
-#fact:hover {
-  /* Fade in while hovering */
   opacity: 0.95;
-  transition-delay: 0;
+  cursor: move;
 }
 
 #disclaimer {

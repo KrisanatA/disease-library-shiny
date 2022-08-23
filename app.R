@@ -7,6 +7,7 @@ library(plotly)
 library(knitr)
 library(kableExtra)
 library(shinythemes)
+library(rsconnect)
 
 
 # Data --------------------------------------------------------------------
@@ -109,7 +110,7 @@ ui <- fillPage(
 
                         tmapOutput("world", width = "100%", height = 800),
 
-                        absolutePanel(id = "fact", fixed = TRUE, draggable = TRUE, top = 500,
+                        absolutePanel(id = "fact", fixed = TRUE, draggable = TRUE, top = 300,
                                       left = 30, right = "auto", bottom = "auto", width = 330,
                                       height = "auto",
 
