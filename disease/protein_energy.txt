@@ -1,0 +1,26 @@
+<h4><b>Definition:</b></h4>
+
+<p>Protein-Energy malnutrition is a deficiency of all macronutrients leading to sudden or gradual energy deficit.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Inadequate nutrient intake</li>
+  <li>Impacts from disorders or drugs that interfere with nutrient use</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Weight loss</li>
+  <li>Growth retardation</li>
+  <li>Dry, thin, and wrinkled skin</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.msdmanuals.com/en-au/professional/nutritional-disorders/undernutrition/protein-energy-undernutrition-peu'> Click here </a>

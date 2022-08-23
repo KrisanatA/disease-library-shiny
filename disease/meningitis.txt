@@ -1,0 +1,27 @@
+<h4><b>Definition:</b></h4>
+
+<p>Meningitis is an infection of the meninges, which are the membranes surrounding the brain and spinal cord.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Commonly affects children</li>
+  <li>Cased by enteroviruses (common stomach viruses)</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Fever</li>
+  <li>Purple-red skin rash or bruising</li>
+  <li>Tiredness and drowsiness</li>
+  <li>Irritability</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/meningitis'> Click here </a>

@@ -1,0 +1,28 @@
+<h4><b>Definition:</b></h4>
+
+<p>Digestive diseases are any health problem in the digestive tract, also known as the gastrointestinal (GI) tract. The tract includes the esophagus (food tube), stomach, large and small intestines, liver, pancreas, and gallbladder.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease) or Communicable depends on the diseases</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Stress</li>
+  <li>Pregnancy</li>
+  <li>Physical inactivity</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Bleeding</li>
+  <li>Pain in the belly</li>
+  <li>Weight gain or loss</li>
+  <li>Nausea and vomiting</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.niddk.nih.gov/health-information/digestive-diseases'> Click here </a>

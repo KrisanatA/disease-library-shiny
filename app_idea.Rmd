@@ -12,6 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(leaflet)
 library(sf)
+library(plotly)
+library(knitr)
+library(kableExtra)
 ```
 
 ## Data Cleaning
@@ -23,19 +26,16 @@ glimpse(mortality)
 world_map <- read_sf(here::here("data/world-administrative-boundaries/world-administrative-boundaries.shp")) %>%
   st_zm(drop = TRUE)
 
-require(gapminder)
-new <- gapminder %>%
-  mutate(country = tolower(as.character(country)))
+new <- world_map %>%
+  mutate(iso3 = tolower(as.character(iso3)))
 
-countries <- unique(new$country)
+countries <- unique(new$iso3)
 
 mortality_sf <- mortality %>%
-  filter(tolower(Entity) %in% countries) %>%
+  filter(tolower(Code) %in% countries) %>%
   group_by(Code) %>%
   right_join(world_map, by = c("Code" = "iso3")) %>%
   ungroup()
-
-NCD <- c("Cardiovascular diseases", "Neoplasms", "Chronic respiratory diseases", "Diabetes mellitus")
 ```
 
 ```{r}
@@ -66,13 +66,12 @@ clean_mortality <- mortality_sf %>%
          `Deaths - Enteric infections - Sex: Both - Age: All Ages (Percent)`,
          continent,
          geometry) %>%
+  na.omit() %>%
   pivot_longer(-c(Entity, Code, Year, continent, geometry),
                values_to = "Mortality_rate_(%)") %>%
   mutate(Disease = str_replace_all(name, c("Deaths - " = "", " - Sex: Both - Age: All Ages \\(Percent\\)" = "")),
-         NCD = ifelse(Disease %in% NCD, "Yes", "No"),
          `Mortality_rate_(%)` = round(`Mortality_rate_(%)`, 4)) %>%
   select(-name) %>%
-  relocate(`Mortality_rate_(%)`, .after = NCD) %>%
   relocate(geometry, .after = `Mortality_rate_(%)`) 
 ```
 
@@ -120,6 +119,22 @@ clean_mortality %>%
          Year == 2019) %>%
   group_by(Disease) %>%
   summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate) %>%
+  select(-Mortality_rate)
+
+
+clean_mortality %>%
+  filter(Entity == "World Bank High Income",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate)
+
+clean_mortality %>%
+  filter(Entity == "World Bank Low Income",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
   arrange(-Mortality_rate)
 ```   
 
@@ -147,8 +162,96 @@ clean_mortality_highest$Disease <- ordered(clean_mortality_highest$Disease, leve
 library(tmap)
 library(RColorBrewer)
 tmap_mode("view")
+tm_shape(clean_mortality_highest %>%
+           filter(continent == "Americas")) +
+  tm_polygons(col = "#ABBAD7") +
+  tm_basemap(leaflet::providers$CartoDB.VoyagerNoLabels) +
+  tm_view(set.view = c(-78,35,1.5))
+
+
+ggplot(clean_mortality_highest %>%
+         filter(continent == "Europe")) +
+  geom_sf()
+
+```
+
+```{r}
 tm_shape(clean_mortality_highest) +
-  tm_polygons(col = "Disease", palette = "RdYlBu") +
+  tm_polygons(col = "Disease", palette = "-YlOrRd") +
   tm_basemap(leaflet::providers$CartoDB.VoyagerNoLabels)
 ```
+
+
+
+```{r}
+p <- clean_mortality %>%
+  filter(Entity == "Australia",
+         Disease == "Cardiovascular diseases") %>%
+  ggplot(aes(x = Year, y = `Mortality_rate_(%)`)) +
+  geom_line(color = "red") +
+  geom_point(color = "red") +
+  theme_bw() +
+  labs(x = "Year", y = "Mortality Rate (Percentage)",
+       title = "Mortality Rate Over Time") +
+  theme(axis.text.x = element_text(angle = 50, vjust = 1, hjust = 1),
+        plot.title = element_text(face = "bold",
+                                  margin = margin(10, 0, 10, 0),
+                                  size = 14))
+
+ggplotly(clean_mortality %>%
+  filter(Entity == "Australia",
+         Disease == "Cardiovascular diseases") %>%
+  ggplot(aes(x = Year, y = `Mortality_rate_(%)`)) +
+  geom_line(color = "red") +
+  geom_point(color = "red") +
+  theme_bw() +
+  labs(x = "Year", y = "Mortality Rate (Percentage)",
+       title = "Mortality Rate Over Time") +
+  theme(axis.text.x = element_text(angle = 50, vjust = 1, hjust = 1),
+        plot.title = element_text(face = "bold",
+                                  margin = margin(10, 0, 10, 0),
+                                  size = 14)))
+
+clean_mortality %>%
+  filter(continent == "Asia",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate) %>%
+  select(-Mortality_rate) %>%
+  mutate(Rank = paste(1:21,".")) %>%
+  relocate(Disease, .after = Rank) %>%
+  head(10) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+
+```{r}
+ordered <- clean_mortality %>%
+  filter(continent == "Asia",
+         Year == 2019) %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(Mortality_rate) %>%
+  pull(Disease)
+
+
+bar <- clean_mortality %>%
+  filter(continent == "Asia",
+         Year == 2019)
+
+bar$Disease <- ordered(bar$Disease, levels = ordered)
+
+ggplotly(bar %>%
+  group_by(Disease) %>%
+  summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
+  arrange(-Mortality_rate) %>%
+  ggplot(aes(x = Disease, y = `Mortality_rate`)) +
+  geom_bar(stat = "identity", fill = "red") +
+  theme_bw() +
+  labs(x = "Disease Name", y = "Mortality Rate (Percentage)") +
+  coord_flip())
+```
+
 

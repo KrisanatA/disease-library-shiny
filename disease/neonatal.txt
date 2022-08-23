@@ -1,0 +1,23 @@
+<h4><b>Definition:</b></h4>
+
+<p>Neonatal disorders are severe neurological problems that occur in babies. It ranges from conditions that affect the brain, spinal cord, peripheral nerves, and muscles.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>It can happen in the baby at birth or shortly after</p>
+
+<h4><b>Impacts:</b></h4>
+
+<ul>
+  <li>The inflection in the mother's genital tract</li>
+  <li>Lack of oxygen</li>
+  <li>Physical injury to the head that causes bleeding inside the brain</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.chp.edu/our-services/brain/neurology/neonatal'> Click here </a>

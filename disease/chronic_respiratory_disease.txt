@@ -1,0 +1,27 @@
+<h4><b>Definition:</b></h4>
+
+<p>Chronic respiratory diseases are diseases that affect the airways and other structures of the lungs. The most common disease are chronic obstructive pulmonary disease, asthma, and occupational lung diseases.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Tobacco smoke</li>
+  <li>Occupational chemicals</li>
+  <li>Dust</li>
+  <li>Air pollution</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Breathlessness</li>
+  <li>Wheezing (Asthma)</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/health-topics/chronic-respiratory-diseases#tab=tab_1'> Click here </a>

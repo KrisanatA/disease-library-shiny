@@ -1,0 +1,44 @@
+<h4><b>Definition:</b></h4>
+
+<p>Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. There are three types of diabetes:</p>
+<ul>
+  <li>Type 1 diabetes:</li>
+    <ul>
+      <li>Characterized by deficient insulin production and requires daily administration of insulin.</li>
+    </ul>
+  <li>Type 2 diabetes:</li>
+    <ul>
+      <li>Characterized by the body’s ineffective use of insulin.</li>
+    </ul>
+  <li>Gestational diabetes:</li>
+    <ul>
+      <li>Hyperglycemia with blood glucose values is above normal but below those diagnostic of diabetes (occurs during pregnancy).</li>
+    </ul>
+</ul>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>For Type 1, the cause are not exactly known</p>
+<p>For Type 2:</p>
+
+<ul>
+  <li>Excess body weight</li>
+  <li>Physical inactivity</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Excessive excretion of urine</li>
+  <li>Thirst</li>
+  <li>Weight loss</li>
+  <li>Vision changes</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/news-room/fact-sheets/detail/diabetes'> Click here </a>

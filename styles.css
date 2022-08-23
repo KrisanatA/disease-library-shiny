@@ -1,1 +1,60 @@
+#world {
+  border: 1px line grey;
+  padding: 0;
+  border-radius: 5px;
+}
 
+#fact {
+  /* Appearance */
+  background-color: white;
+  padding: 0 20px 20px 20px;
+  cursor: move;
+  /* Fade out while not hovering */
+  opacity: 0.65;
+  zoom: 0.9;
+  transition: opacity 500ms 1s;
+}
+#fact:hover {
+  /* Fade in while hovering */
+  opacity: 0.95;
+  transition-delay: 0;
+}
+
+#disclaimer {
+  position: absolute;
+  top: 851px;
+  left: 25px;
+  font-size: 12px;
+}
+
+
+#about {
+  background-color: #D3D3D3;
+  border: 1px line grey;
+  padding: 10px;
+  border-radius: 5px;
+  width: 50%;
+  margin: auto;
+}
+
+#information {
+  background-color: #D3D3D3;
+  border: 1px line grey;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+}
+
+#information3 {
+  background-color: #D3D3D3;
+  border: 1px line grey;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+}
+
+#diseaseinput {
+  margin-left: 20px;
+}

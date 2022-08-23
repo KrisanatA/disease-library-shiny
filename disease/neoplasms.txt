@@ -1,0 +1,30 @@
+<h4><b>Definition:</b></h4>
+
+<p>Neoplasms, also known as cancer, are a group of diseases that can affect any part of the body. The defining feature of this is the rapid growth of abnormal cells, which can be cancerous or noncancerous.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Tobacco use</li>
+  <li>Alcohol consumption</li>
+  <li>Unhealthy diet</li>
+  <li>Physical inactivity</li>
+  <li>Air pollution</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Lump or area of thickening that can be felt under the skin</li>
+  <li>Fatigue</li>
+  <li>Unexplained weight loss</li>
+  <li>Persistent headache or blurred vision</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.cancer.org.au/cancer-information'> Click here </a>

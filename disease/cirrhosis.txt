@@ -1,0 +1,24 @@
+<h4><b>Definition:</b></h4>
+
+<p>Cirrhosis is a disease that develops over many years causing the liver to be permanently damaged and scar tissue to replace healthy tissues.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>Commonly caused by drinking an excessive amount of alcohol and build-up of excess fat in the liver as associated with obesity and diabetes</p>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Loss of appetite, weight loss, and weakness</li>
+  <li>Bruising and bleeding easily</li>
+  <li>Yellowing of skin and whites of eyes</li>
+  <li>Fluid build-up in the abdomen</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/cirrhosis-of-the-liver'> Click here </a>

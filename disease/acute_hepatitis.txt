@@ -1,0 +1,23 @@
+<h4><b>Definition:</b></h4>
+
+<p>Acute Hepatitis is a common disease throughout the world. It is known as inflammation of the liver caused by the infection with one of the five hepatitis viruses.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>Primarily transmission through direct human contamination hence, people who engage in certain activities such as sharing needles to inject drugs or having several sex partners can increase the risk of developing hepatitis.</p>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Poor appetite</li>
+  <li>Nausea and vomiting</li>
+  <li>Pain in the upper right part of the abdomen</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.msdmanuals.com/en-au/home/liver-and-gallbladder-disorders/hepatitis/overview-of-acute-viral-hepatitis'> Click here </a>

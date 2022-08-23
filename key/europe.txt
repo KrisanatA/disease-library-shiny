@@ -1,0 +1,4 @@
+<h4><b>Europe:</b></h4>
+  <ul>
+    <li>The third highest cause of death in Europe is <em>Alzheimer’s disease</em>. This disease currently has no cure, only medicine that can temporarily reduce the symptoms. We need an increase in research on the disease as one of the risk factors for this disease is age.</li>
+  </ul>

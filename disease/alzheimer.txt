@@ -1,0 +1,24 @@
+<h4><b>Definition:</b></h4>
+
+<p>Alzheimer's disease is a common form of dementia. It is a physical brain condition that disrupts the brain's neurons impacting how they work and communicate with each other.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+More common in older age groups such as those above the 50s
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Persistent and frequent short-term memory loss</li>
+  <li>Language and comprehension difficulties</li>
+  <li>Change in behaviour, personality, and mood</li>
+  <li>Increasing disorientation in time, place, and person</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/alzheimers-disease'> Click here </a>

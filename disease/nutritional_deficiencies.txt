@@ -1,0 +1,26 @@
+<h4><b>Definition:</b></h4>
+
+<p>Nutritional deficiencies are known as malnutrition, the result when someone has insufficient nutrients such as vitamins and minerals for their needs.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Lack of micronutrients such as iron and vitamin C consumption</li>
+  <li>People with condition that prevents them from absorbing nutrients such as the elderly with dementia or dental problems</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Lose weight and muscle</li>
+  <li>Pales skin</li>
+  <li>Hairloss</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/malnutrition'> Click here </a>

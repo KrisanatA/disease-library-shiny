@@ -1,0 +1,10 @@
+<h4><b>Afica:</b></h4>
+<ul>
+  <li>In the African region <em>HIV/AIDS, Neonatal disorders, Diarrheal diseases, Lower respiratory infections, Enteric infections, and Malaria</em>, these diseases have high mortality rates such that these need to be implemented:
+</li>
+    <ul>
+      <li>Better access to a necessity, e.g. clean water, food</li>
+      <li>Information on the disease should be more accessible, e.g. how to prevent getting the diseases</li>
+      <li>Better accessibility to the medicines and treatment</li>
+    </ul>
+</ul>

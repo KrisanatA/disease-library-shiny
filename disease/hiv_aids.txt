@@ -1,0 +1,27 @@
+<h4><b>Definition:</b></h4>
+
+<p>HIV / AIDS is a virus that affected the immune system. HIV gradually destroys CD4 cells which, reduces the cells that help fight off disease and maintain a healthy body.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Unprotected anal or vaginal sex</li>
+  <li>Sharing drug-injecting equipment</li>
+  <li>Tattooing, piercing, and other procedures with unsterile needles or equipment</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Fever and headache</li>
+  <li>Sore muscles and joints</li>
+  <li>Swollen lymph glands in the neck, underarm or groin areas</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/hiv-infection-and-aids'> Click here </a>

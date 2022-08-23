@@ -1,0 +1,27 @@
+<h4><b>Definition:</b></h4>
+
+<p>Diarrheal diseases in infections caused by a host of bacterial, viral, and parasitic organisms, most of which are spread by faces - contaminated water.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Contaminated consuming water</li>
+  <li>Poor sanitation environment</li>
+  <li>Malnutrition</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Dehydration (loose or watery stool)</li>
+  <li>Restlessness, irritability</li>
+  <li>Sunken eyes</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease'> Click here </a>

@@ -1,0 +1,24 @@
+<h4><b>Definition:</b></h4>
+
+<p>Lower Respiratory Tract Infections (LRTI) are infections that affect the airways (below the level of the larynx), including the trachea and the alveolar sacs.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>They are carried in tiny droplets and passed between people by coughing, sneezing, and at times by indirect contact with surfaces.</p>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Fever</li>
+  <li>Severe cough</li>
+  <li>Chest pain or tightness</li>
+  <li>Rapid breathing or difficulty breathing</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.templehealth.org/services/conditions/lower-respiratory-tract-infections'> Click here </a>

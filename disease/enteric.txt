@@ -1,0 +1,27 @@
+<h4><b>Definition:</b></h4>
+
+<p>Enteric diseases are known as intestinal illnesses caused by micro-organisms such as viruses, bacteria, and parasites.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Consumption of contaminated food and water</li>
+  <li>Poor sanitation</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Stomach cramps</li>
+  <li>Weight loss</li>
+  <li>Diarrhea</li>
+  <li>Nausea</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/enteric-foodborne-diseases'> Click here </a>

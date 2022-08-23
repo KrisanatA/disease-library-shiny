@@ -1,0 +1,29 @@
+<h4><b>Definition:</b></h4>
+
+<p>Cardiovascular diseases are a group of diseases that affect the heart and blood vessels, for example, high blood pressure; heart attack; and stroke.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Unhealthy diet</li>
+  <li>Physical inactivity</li>
+  <li>Tobacco use</li>
+  <li>Harmful use of alcohol</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Pain or discomfort in the center of the chest</li>
+  <li>Pain or discomfort in the arms, the left shoulder, elbows, jaw, or back</li>
+  <li>Difficulty in breathing</li>
+  <li>Sudden weakness of the face, arm, or leg, most often on one side of the body</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)'> Click here </a>

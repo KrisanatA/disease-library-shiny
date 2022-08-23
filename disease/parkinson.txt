@@ -1,0 +1,23 @@
+<h4><b>Definition:</b></h4>
+
+<p>Parkinson's disease is a disorder due to the damage to the nerve cells that produce dopamine, a chemical that is vital for the smooth control of muscles and movements.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>Mainly impacts people aged over 56.</p>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Tremor or shaking, often when resting or tired</li>
+  <li>Limit movement from muscle rigidity or stiffness</li>
+  <li>Stooped posture and balance problems</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/parkinsons-disease'> Click here </a>

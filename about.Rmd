@@ -1,26 +1,27 @@
 
-#### Data
+#### **Data**
 
-This data shows the waiting time between eruptions
-and the duration of the eruption for the Old Faithful
-geyser in Yellowstone National Park, Wyoming, USA.
-The data source is from Azzalini & Bowman (1990) 
-*"A look at some data on the Old Faithful geyser." Applied Statistics*, 39, 357–365.
+This data set is from [Our World in Data](https://ourworldindata.org/causes-of-death). 
+It contained the mortality rate of various existing diseases for each country around 
+the world and each year.
 
 
-#### Purpose
+#### **Purpose**
 
-The purpose of the app is to:
+As the countries shift their focus onto the COVID-19 pandemic, this may shadow the other existing diseases.
 
-1. show how the number of bins in a histogram reveals/hides the bimodality in the data,
-2. show how the different plot choices make certain features of data more striking, and 
-3. interactively estimate the best parameters for the mixture of two normal distributions to the data. 
+Therefore the purpose of this app is to:
 
-The data showed obvious signs of bimodality (both in the marginal and joint distribution). The app used interactive components to see how the choices in plot elements (e.g. number of bins and plot types) effect the visibility of these features. The last part used an interactive approach for a user to decide the model parameters that fit the data. 
+1. Highlight the existing disease that impacts countries around the world,
+2. Allow the healthcare professional easier access to the disease information, and
+3. Spread awareness about the disease in different regions.
 
-#### Creator
+The app used an interactive map to allow the user to see how different diseases impact different countries (e.g. the highest cause of death in the country). The second and last panel used the interactive components to allow the user to decide which information is relevant to them. The data is presented using the time series plot, table, bar plot, and map for an easier understanding of the data.
 
-Emi Tanaka (emi.tanaka@monash.edu)
+
+#### **Creator**
+
+Krisanat Anukarnsakulchularp (kanu0003@student.monash.edu)
 
 <details>
 <summary>Session information</summary>

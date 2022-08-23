@@ -1,0 +1,23 @@
+<h4><b>Definition:</b></h4>
+
+<p>Malaria is a disease that resulted from the bites of infected female Anopheles mosquitoes causing parasites to be transmitted to people.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<p>People with low immunity</p>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>Fever</li>
+  <li>Headache and chills</li>
+  <li>Severe illness</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/news-room/fact-sheets/detail/malaria'> Click here </a>

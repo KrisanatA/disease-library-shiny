@@ -1,0 +1,28 @@
+<h4><b>Definition:</b></h4>
+
+<p>Maternal disorders are the group of pregnancy, childbirth, and puerperium complications. An example of maternal diseases includes diabetes, anemia, and asthma.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Age</li>
+  <li>Pre-existing health issues such as diabetes, high blood pressure</li>
+</ul>
+
+<h4><b>Causes:</b></h4>
+
+<ul>
+  <li>Severe bleeding (bleeding after childbirth)</li>
+  <li>High blood pressure (pre-eclampsia and eclampsia)</li>
+  <li>Infections (usually after childbirth)</li>
+  <li>Complications from delivery</li>
+  <li>Unsafe abortion</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.who.int/news-room/fact-sheets/detail/maternal-mortality'> Click here </a>

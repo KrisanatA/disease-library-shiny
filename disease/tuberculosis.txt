@@ -1,0 +1,28 @@
+<h4><b>Definition:</b></h4>
+
+<p>Tuberculosis is a disease caused by infection with the bacteria Mycobacterium tuberculosis that most commonly affects a person's lungs.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>Communicable disease</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>People who take medication that affects the immune system</li>
+  <li>People who have a chronic illness that affects the immune system</li>
+  <li>People who have spent long periods in close contact with people with infectious tuberculosis</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>A cough that lasts for more than three weeks</li>
+  <li>Blood-stained sputum</li>
+  <li>Fevers and night sweats</li>
+  <li>Loss of appetite</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.health.nsw.gov.au/Infectious/factsheets/Pages/tuberculosis.aspx'> Click here </a>

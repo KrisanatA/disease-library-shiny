@@ -1,0 +1,4 @@
+<h4><b>Americas and Oceania:</b></h4>
+  <ul>
+    <li>In the Americas and Oceania, the third largest causes of death are <em>Diabetes</em>. Diabetes type 2 risk factors are physical inactivity and excess body weight. Exercise is strongly recommended to reduce the Diabetes</li>
+  </ul>

@@ -1,0 +1,28 @@
+<h4><b>Definition:</b></h4>
+
+<p>Chronic kidney disease is also known as renal disease. It occurs when the kidneys are damaged and do not function as they should for a period longer than three months.</p>
+
+<h4><b>Disease category:</b></h4>
+
+<p>NCD (Non-Communicable Disease)</p>
+
+<h4><b>Risk factors:</b></h4>
+
+<ul>
+  <li>Diabetes</li>
+  <li>People with kidney disease in the family</li>
+  <li>People in the older age group</li>
+  <li>People with high blood pressure</li>
+</ul>
+
+<h4><b>Symptoms:</b></h4>
+
+<ul>
+  <li>High blood pressure</li>
+  <li>Nausea and vomiting</li>
+  <li>Changes in the number of times you pass urine and how the urine looks</li>
+</ul>
+
+<h4><b>For more information:</b></h4>
+
+<a href = 'https://www.healthdirect.gov.au/chronic-kidney-disease'> Click here </a>

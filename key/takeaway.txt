@@ -1,0 +1,9 @@
+<h4><b>Key takeaway</b></h4>
+<ul>
+  <li>With the top two causes of death being Non-communicable diseases, the main priority should be trying to fix the underlying issues that affect people, such as:</li>
+    <ul>
+      <li>Raised awareness on a good dietary</li>
+      <li>Raised awareness of an exercise</li>
+      <li>The availability of affordable basic technologies and essential medicines</li>
+    </ul>
+</ul>
