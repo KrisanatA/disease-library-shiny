@@ -108,10 +108,12 @@ ui <- fillPage(
              # Map tab
              tabPanel("World Map", icon = icon("earth-americas"),
 
-                        tmapOutput("world", width = "100%", height = 800),
+                      div(class = "outer",
 
-                        absolutePanel(id = "fact", fixed = TRUE, draggable = TRUE, top = 300,
-                                      left = 30, right = "auto", bottom = "auto", width = 330,
+                        tmapOutput("world", width = "100%", height = "100%"),
+
+                        absolutePanel(id = "fact", fixed = TRUE, draggable = TRUE, top = "auto",
+                                      left = 30, right = "auto", bottom = 300, width = 330,
                                       height = "auto",
 
                                       h4("Did you know?"),
@@ -124,6 +126,7 @@ ui <- fillPage(
                                   "Disclaimer: Some countries do not include in this data."
                                 )
 
+                      )
                       ),
 
              # Disease Information tab
