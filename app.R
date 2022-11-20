@@ -83,16 +83,7 @@ disease_name <- unique(clean_mortality$Disease)
 country_name <- unique(clean_mortality$Entity)
 continent_name <- unique(clean_mortality$continent)
 
-disease_ordered <- clean_mortality_highest %>%
-  group_by(Disease) %>%
-  summarise(n = n()) %>%
-  arrange(-n) %>%
-  pull(Disease)
-
-clean_mortality_highest$Disease <- ordered(clean_mortality_highest$Disease, levels = disease_ordered)
-
-my_palette <- rev(brewer.pal(name = "OrRd", n = 8))
-my_palette <- my_palette[-2]
+my_palette <- c("#ff6961", "#7fc97f", "#beaed4", "#ffff99", "#386cb0", "#bf5b17", "#fdc086")
 
 
 # Shiny app ---------------------------------------------------------------
@@ -118,7 +109,7 @@ ui <- fillPage(
 
                                       h4("Did you know?"),
 
-                                      p("Before communicable diseases like COVID-19 struck, the disease that causes most deaths in the world is Cardiovascular disease, also known as conditions affecting the heart or blood vessels")
+                                      p("In 2019, before communicable diseases like COVID-19 struck, the disease that causes the highest number of deaths in the world is Cardiovascular disease, also known as conditions affecting the heart or blood vessels")
 
                                       ),
 
