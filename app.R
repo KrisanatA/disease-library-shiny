@@ -166,9 +166,7 @@ ui <- fillPage(
                       fluidRow(
                         column(4,
 
-                               mainPanel(
                                  htmlOutput("information")
-                               )
 
                         ),
                         column(5,
@@ -177,9 +175,7 @@ ui <- fillPage(
                                  htmlOutput("title_time")
                                ),
 
-                               mainPanel(
-                                 plotlyOutput("time_series", height = 500)
-                               )
+                               plotlyOutput("time_series", height = 500)
 
                         ),
                         column(3,
@@ -188,9 +184,7 @@ ui <- fillPage(
                                  htmlOutput("title_rank")
                                ),
 
-                               mainPanel(
-                                 htmlOutput("ranking", height = 500)
-                               )
+                               htmlOutput("ranking", height = 500)
 
                         )
 
