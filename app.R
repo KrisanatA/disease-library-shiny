@@ -164,6 +164,9 @@ ui <- fillPage(
                       ),
 
                       fluidRow(
+
+                        style = "max-height: 60vh; overflow-y: auto;",
+
                         column(4,
 
                                  htmlOutput("information")
@@ -210,6 +213,8 @@ ui <- fillPage(
 
                       fluidRow(
 
+                        style = "max-height: 60vh; overflow-y: auto;",
+
                         column(4,
 
                                tmapOutput("continentmap", height = 500)
@@ -241,6 +246,8 @@ ui <- fillPage(
 
              # About tab
              tabPanel("About", icon = icon("circle-info"),
+
+                      style = "max-height: 60vh; overflow-y: auto;",
 
                       uiOutput("about")
 
