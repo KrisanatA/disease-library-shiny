@@ -223,7 +223,7 @@ ui <- fillPage(
 
                         column(5,
 
-                               plotOutput("barplot", height = 500)
+                               plotlyOutput("barplot", height = 500)
 
                         ),
 
@@ -480,20 +480,24 @@ server <- function(input, output) {
   observe({
     req(input$continent)
 
-    output$barplot <- renderPlot({
+    output$barplot <- renderPlotly({
 
-      clean_mortality %>%
+      ggplotly(clean_mortality %>%
         filter(continent == input$continent,
                Year == 2019) %>%
         group_by(Disease) %>%
         summarise(Mortality_rate = mean(`Mortality_rate_(%)`), .groups = "drop") %>%
         arrange(-Mortality_rate) %>%
-        ggplot(aes(x = reorder(Disease, Mortality_rate), y = `Mortality_rate`)) +
+        ggplot(aes(x = reorder(Disease, Mortality_rate), y = `Mortality_rate`, text = paste0("Disease:", Disease))) +
         geom_bar(stat = "identity", fill = "red") +
         theme_bw() +
-        labs(x = "", y = "Mortality Rate (Percentage)") +
-        theme(axis.text = element_text(size = 15)) +
-        coord_flip()
+        labs(x = "", y = "Mortality Rate (Percentage, Hover for more information)") +
+        theme(axis.title.y = element_blank(),
+              axis.text.y = element_blank(),
+              axis.ticks.y = element_blank()) +
+        coord_flip(),
+        tooltip = c("text", "y")
+      )
 
       })
 
