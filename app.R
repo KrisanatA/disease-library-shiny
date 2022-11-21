@@ -491,9 +491,8 @@ server <- function(input, output) {
         ggplot(aes(x = reorder(Disease, Mortality_rate), y = `Mortality_rate`, text = paste0("Disease:", Disease))) +
         geom_bar(stat = "identity", fill = "red") +
         theme_bw() +
-        labs(x = "", y = "Mortality Rate (Percentage, Hover for more information)") +
-        theme(axis.title.y = element_blank(),
-              axis.text.y = element_blank(),
+        labs(x = "Hover for more information", y = "Mortality Rate (Percentage)") +
+        theme(axis.text.y = element_blank(),
               axis.ticks.y = element_blank()) +
         coord_flip(),
         tooltip = c("text", "y")
